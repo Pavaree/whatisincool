@@ -1,117 +1,195 @@
-function mockupClick(pageToHide, pageToShow) {
-    if (pageToShow == "page-ranking") {
-        document.getElementById('navbar').style.display = "block";
-        document.getElementById('nav_bottom').style.display = "block";
-    }
-    else if (pageToShow == "page-findbyID") {
-        document.getElementById('navbar')
-        document.getElementById('nav_bottom')
-    }
-    document.querySelector('#' + pageToHide).style.display = "none";
-    document.querySelector('#' + pageToShow).style.display = "block";
+body{
+    padding:1em;
+    background:black;
+    font-family: 'Itim', cursive;
+  }
+
+
+mobile{
+    display:flex;
+    flex-flow:column nowrap;
+    background:#373536;
+    margin:auto;
+    width:414px;
+    height:736px;
+    box-shadow:0px 12px 24px #0004;
 }
+  .mobile-status-bar img{
+    width:100%;
+  }
+  .mobile-container{
+    height:100%;
+    overflow:auto;
+  }
 
-
-
-function up(max, key_id) {
-    if (key_id == 1) {
-        document.getElementById("num_water").value = parseInt(document.getElementById("num_water").value) + 1;
-        if (document.getElementById("num_water").value >= parseInt(max)) {
-            document.getElementById("num_water").value = max;
-        }
-    }
-    else if (key_id == 2) {
-        document.getElementById("num_egg").value = parseInt(document.getElementById("num_egg").value) + 1;
-        if (document.getElementById("num_egg").value >= parseInt(max)) {
-            document.getElementById("num_egg").value = max;
-        }
-    }
-}
-
-
-function down(min, key_id) {
-    let i = 3;
-    if (key_id == 1) {
-        document.getElementById("num_water").value = parseInt(document.getElementById("num_water").value) - 1;
-        if (document.getElementById("num_water").value <= parseInt(min)) {
-            document.getElementById("num_water").value = min;
-        }
-    }
-
-    else if (key_id == 2) {
-        document.getElementById("num_egg").value = parseInt(document.getElementById("num_egg").value) - 1;
-        if (document.getElementById("num_egg").value <= parseInt(min)) {
-            document.getElementById("num_egg").value = min;
-        }
-    }
-
-    else if (key_id, num_$i) {
-        document.getElementById("num_$i").value = parseInt(document.getElementById("num_$i").value) - 1;
-        if (document.getElementById("num_$i").value <= parseInt(min)) {
-            document.getElementById("num_$i").value = min;
-        }
-    }
-}
-
-
-var object =[{item:"น้ำเปล่า",amount:"1"},{item:"ไข่ไก่",amount:"1"}]
-function add_item() {
-    let item_ = document.getElementById("item").value;
-    let amont_item = document.getElementById("amount").value;
-    object.push({item:item_,amount:amont_item})
-    loadItem();
-
-    if (item_ == null && amont_item == null) {
-    }
+nav{
+    background:#df4045;
+    color:white;
+    text-align:center;
+    padding:.5em;
+    top: auto;
     
+}
+#nav_bottom{
+  position: fixed;
+  width: 414px;
+  bottom: 15%;
 
 }
+  
+  .page{
+    padding:1em;
+  }
+  textarea{
+    width:100%;
+    border-radius:.3em;
+    font-size:1rem;
+    padding:1em;
+    box-sizing:border-box;
+  }
+  .but{
+    background:#144999;
+    border-radius:.3em;
+    font-size:1rem;
+    color:white;
+    width:100%;
+    padding:1em;
+    box-sizing:border-box;
+    border:none;
+  }
+  input{
+    width:100%;
+    border-radius:.3em;
+    font-size:1rem;
+    padding:1em .5em;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    margin-bottom:1em;
+  }
+  .button.score{
+    width:48%;
+    display:inline-block;
+    margin:2px 0;
+  }
+  
+  
+  
+  #page-ranking,
+  #page-findbyID,
+  #page-scoring
+  {
+    display:none;
+    color: white;
+  }
 
-function loadItem() { 
-    item_list = `
-    <div class="row">
-          <div class="col-6 text-center">
-            <p>รายการ</p>
-          </div>
-          <div class="col-3 text-center">
-            <p>จำนวน</p>
-          </div>
 
-          <div class="col-2 ">
-            <p></p>
-          </div>
-          <div class="col-12 ">
-            <hr size="10" color="white">
-          </div>
-        </div>`
 
-    for (var i = 1 ; i <= object.length ; i++) {
-        item_list += `
-			<div class="row">
-                <div class="col-2 ">
-                    <p>${i})</p>
-                </div>
 
-                <div class="col-4 ">
-                    <p>${object[i-1].item}</p>
-                </div>
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
 
-                <div class="col-3 text-center">
-                    <input type="text" id="num_${i}" class="form-control input-number" value="${object[i-1].amount}" />
-                </div>
-                    
-                <!-- เพิ่ม -->
-                <div class="col-1 text-center">
-                    <img src="add.png" alt="" style="width: 15px; height: 15px;" onclick="up('20', num_${i})">
-                </div>
-                <div class="col-1 ">
-                    <!-- ลบ -->
-                    <img src="minus.png" alt="" style="width: 15px; height: 15px;" onclick="down('0', num_${i})">
-                </div>
-            </div>
-        `;
-    }
-    item_list += `<button class="but" onclick="mockupClick('page-ranking','page-findbyID')">เพิ่มรายการ</button>`
-    document.getElementById("page-ranking").innerHTML = item_list
-    mockupClick("page-findbyID","page-ranking")
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
 }
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.animated.delay-1s {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.animated.delay-2s {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+.animated.delay-3s {
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}
+
+.animated.delay-4s {
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+.animated.delay-5s {
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}
+
+.animated.fast {
+  -webkit-animation-duration: 800ms;
+  animation-duration: 800ms;
+}
+
+.animated.faster {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
+
+.animated.slow {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+.animated.slower {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}
+
+@media (print), (prefers-reduced-motion: reduce) {
+  .animated {
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    -webkit-transition-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+  }
+}  
