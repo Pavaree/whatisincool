@@ -11,137 +11,194 @@
   <link href="https://fonts.googleapis.com/css?family=Itim&display=swap" rel="stylesheet">
   <link rel="icon" type="image/jpg" href="refrigerator.png">
   <link rel="apple-touch-icon" href="refrigerator.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="refrigerator.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="refrigerator.png">
-	<link rel="apple-touch-icon" href="refrigerator.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="refrigerator.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="refrigerator.png">
+  <link rel="apple-touch-icon" href="refrigerator.png">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <title>your refrigerator</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="animate.css">
-  
+
 
 </head>
 
-<body>
-  <mobile>
-    <div class="mobile-status-bar">
-      <img src="https://i.imgur.com/XSqz2K4.png" alt="">
+
+<mobile>
+  <div class="mobile-status-bar">
+    <img src="https://i.imgur.com/XSqz2K4.png" alt="">
 
 
-      <div class='mobile-container'>
+    <div class='mobile-container'>
 
-        <br><br>
-        <div id="page-setting" class="page">
-          <div style="text-align: center;">
-            <h2 style="color: white;">
-              what is in <br>
-              your refrigerator <br>
-              ?
-
-            </h2>
+      <div id="page-setting" class="page">
+        <div style="text-align: center;">
+          <h2 style="color: white;">
             <br><br>
-            <img src="cool.png" alt="" style="width:200px; height: 200px;" class="button animated pulse infinite"
-              onclick="mockupClick('page-setting','page-ranking')">
-            <br><br>
-            <h2 style="color:#f17b7d;" onclick="mockupClick('page-setting','page-ranking')">
-              Touch Here . . .
-            </h2>
-          </div>
+            what is in <br>
+            your refrigerator <br>
+            ?
 
-
-
-        </div>
-        <div id="page-ranking" class="page">
-
-
-
-          <nav> มีอะไรอยู่ในตู้เย็น ?</nav>
-
-          <div class="row">
-            <div class="col-6 text-center">
-              <p>รายการ</p>
-            </div>
-            <div class="col-3 text-center">
-              <p>จำนวน</p>
-            </div>
-
-            <div class="col-2 ">
-              <p></p>
-            </div>
-            <div class="col-12 ">
-              <hr size="10" color="white">
-            </div>
-
-            <div class="col-2 ">
-              <p>1)</p>
-            </div>
-            <div class="col-4 ">
-              <p>น้ำเปล่า</p>
-            </div>
-            <div class="col-3 text-center">
-              <p>2</p>
-            </div>
-            <div class="col-1 text-center">
-              <img src="add.png" alt="" style="width: 15px; height: 15px;"  
-              onclick="">
-            </div>
-            <div class="col-1 ">
-              <img src="minus.png" alt="" style="width: 15px; height: 15px;"
-              onclick="">
-            </div>
-
-            <div class="col-2 ">
-              <p>2)</p>
-            </div>
-            <div class="col-4 ">
-              <p>ไข่ไก่</p>
-            </div>
-            <div class="col-3 text-center">
-              <p>5</p>
-            </div>
-            <div class="col-1 text-center">
-              <img src="add.png" alt="" style="width: 15px; height: 15px;"
-              onclick="">
-            </div>
-            <div class="col-1 ">
-              <img src="minus.png" alt="" style="width: 15px; height: 15px;"
-              onclick="">
-            </div>
-
-
-
-          </div>
-
-          <button class="but" onclick="mockupClick('page-ranking','page-findbyID')">เพิ่มรายการ</button>
+          </h2>
+          <br><br>
+          <img src="cool.png" alt="" style="width:200px; height: 200px;" class="button animated pulse infinite"
+            onclick="mockupClick('page-setting','page-ranking')">
+          <br><br>
+          <h2 style="color:#f17b7d;" onclick="mockupClick('page-setting','page-ranking')">
+            Touch Here . . .
+          </h2>
         </div>
 
-        <div id="page-findbyID" class="page">
-          <nav>เพิ่มรายการ</nav><br>
-          <div class="row">
-
-            <div class="col-6 text-center">
-              <p>รายการ</p>
-            </div>
-            <div class="col-6 text-center"><input type="text"></div>
-
-            <div class="col-6 text-center">
-              <p>จำนวน</p>
-            </div>
-            <div class="col-6 text-center"><input type="text"></div>
-
-            <div class="col-6 text-center">
-              <button class="but" onclick="mockupClick('page-findbyID','page-ranking')">หน้าหลัก</button>
-            </div>
-            <div class="col-6 text-center">
-              <button class="but" onclick="mockupClick('page-findbyID','page-ranking')">ยืนยัน</button>
-            </div>
-
-
-          </div>
-        </div>
 
       </div>
-  </mobile>
-  <script src="myscripts.js"></script>
+
+      <nav id="navbar" style="display: none;"> มีอะไรอยู่ในตู้เย็น ? </nav>
+
+      <div id="page-ranking" class="page">
+
+        <div class="row">
+          <div class="col-6 text-center">
+            <p>รายการ</p>
+          </div>
+          <div class="col-3 text-center">
+            <p>จำนวน</p>
+          </div>
+
+          <div class="col-2 ">
+            <p></p>
+          </div>
+          <div class="col-12 ">
+            <hr size="10" color="white">
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-2 ">
+            <p>1)</p>
+          </div>
+          <div class="col-4 ">
+            <p>น้ำเปล่า</p>
+          </div>
+          <div class="col-3 text-center">
+            <input type="text" id="num_water" class="form-control input-number" value="1" />
+          </div>
+          <div class="col-1 text-center">
+            <img src="add.png" alt="" style="width: 15px; height: 15px;" onclick="up('20', 1)">
+          </div>
+          <div class="col-1 ">
+            <img src="minus.png" alt="" style="width: 15px; height: 15px;" onclick="down('0', 1)">
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-2 ">
+            <p>2)</p>
+          </div>
+
+          <div class="col-4 ">
+            <p>ไข่ไก่</p>
+          </div>
+
+          <div class="col-3 text-center">
+            <input type="text" id="num_egg" class="form-control input-number" value="1" />
+          </div>
+          <!-- เพิ่ม -->
+          <div class="col-1 text-center">
+            <img src="add.png" alt="" style="width: 15px; height: 15px;" onclick="up('10', 2)">
+          </div>
+          <div class="col-1 ">
+            <!-- ลบ -->
+            <img src="minus.png" alt="" style="width: 15px; height: 15px;" onclick="down('0', 2)">
+          </div>
+        </div>
+
+        <button class="but" onclick="mockupClick('page-ranking','page-findbyID')">เพิ่มรายการ</button>
+
+      </div>
+
+
+
+      <div id="page-findbyID" class="page">
+
+
+        <div class="row">
+          <div class="col-12 text-center">
+            <p>เพิ่มรายการ</p>
+          </div>
+
+
+          <div class="col-12 ">
+            <hr size="10" color="white">
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-6 text-center">
+            <p>รายการ</p>
+          </div>
+          <!-- เพิ่มของ -->
+          <div class="col-6">
+            <div class="ui small icon input">
+              <input id="item" type="text" placeholder="Please fill in item">
+            </div>
+          </div>
+
+          <div class="col-12"> <br></div>
+
+
+          <div class="col-6 text-center">
+            <p>จำนวน</p>
+          </div>
+          <!-- จำนวนของ -->
+          <div class="col-6">
+            <div class="ui small icon input">
+              <input id="amount" type="text" placeholder="please fill in amount">
+            </div>
+          </div>
+
+          <div class="col-12"> <br></div>
+
+          <div class="col-6 text-center">
+            <button class="but" onclick="mockupClick('page-findbyID','page-ranking')">หน้าหลัก</button>
+          </div>
+          <div class="col-6 text-center">
+            <button class="but" onclick="add_item()">ยืนยัน</button>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+    
+    <div id="nav_bottom" style="display: none;">
+      <nav>
+        <div class="ui three column grid">
+          <div class="column" onclick="mockupClick('page-findbyID','page-ranking')">
+            <i class="black archive icon"></i>
+          </div>
+          <div class="column" onclick="mockupClick('page-ranking','page-findbyID')">
+            <i class="black shopping basket icon"></i>
+          </div>
+          <div class="column" data-tooltip="Coming soon"  data-inverted="" data-position="top center">
+            <i class="black  cart plus icon"></i>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+
+
+
+
+</mobile>
+<script src="myscripts.js"></script>
 </body>
 
 </html>
