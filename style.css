@@ -1,6 +1,6 @@
 body{
     padding:1em;
-    background:#1e0d1f;
+    background:black;
     font-family: 'Itim', cursive;
   }
 
@@ -23,10 +23,18 @@ mobile{
   }
 
 nav{
-    background:#8c2425;
+    background:#df4045;
     color:white;
     text-align:center;
     padding:.5em;
+    top: auto;
+    
+}
+#nav_bottom{
+  position: fixed;
+  width: 414px;
+  bottom: 10%;
+
 }
   
   .page{
@@ -40,7 +48,7 @@ nav{
     box-sizing:border-box;
   }
   .but{
-    background:#202048;
+    background:#144999;
     border-radius:.3em;
     font-size:1rem;
     color:white;
