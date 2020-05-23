@@ -2,6 +2,7 @@ function mockupClick(pageToHide, pageToShow) {
     if (pageToShow == "page-ranking") {
         document.getElementById('navbar').style.display = "block";
         document.getElementById('nav_bottom').style.display = "block";
+
         loadItem();
     }
     else if (pageToShow == "page-findbyID") {
@@ -21,7 +22,7 @@ function up(max, key_id) {
         object[key_id - 1].amount = max;
     }
     localStorage.setItem("object", JSON.stringify(object));
-    document.getElementById(num).value = object[key_id -1].amount;
+    document.getElementById(num).value = object[key_id - 1].amount;
 }
 
 
@@ -33,7 +34,7 @@ function down(min, key_id) {
         object[key_id - 1].amount = min;
     }
     localStorage.setItem("object", JSON.stringify(object));
-    document.getElementById(num).value = object[key_id -1].amount;
+    document.getElementById(num).value = object[key_id - 1].amount;
 }
 
 
@@ -46,11 +47,14 @@ if (localStorage.getItem("object") !== null) {
 function add_item() {
     let item_ = document.getElementById("item").value;
     let amont_item = parseInt(document.getElementById("amount").value);
-    object.push({ item: item_, amount: amont_item })
-    localStorage.setItem("object", JSON.stringify(object));
-    console.log(localStorage.getItem("object"));
-    loadItem();
-    mockupClick("page-findbyID", "page-ranking")
+    if (amont_item !== "") {
+        object.push({ item: item_, amount: amont_item })
+        localStorage.setItem("object", JSON.stringify(object));
+        console.log(localStorage.getItem("object"));
+        loadItem();
+        mockupClick("page-findbyID", "page-ranking")
+    }
+
 }
 
 
@@ -84,12 +88,12 @@ function loadItem() {
                 </div>
 
                 <div class="col-3 text-center">
-                    <input type="text" id="num_${i}" class="form-control input-number" value="${object[i - 1].amount}" />
+                    <input type="number" id="num_${i}" class="form-control input-number" value="${object[i - 1].amount}" />
                 </div>
                     
                 <!-- เพิ่ม -->
                 <div class="col-1 text-center">
-                    <img src="add.png" alt="" style="width: 15px; height: 15px;" onclick="up('20', ${i})">
+                    <img src="add.png" alt="" style="width: 15px; height: 15px;" onclick="up('100', ${i})">
                 </div>
                 <div class="col-1 ">
                     <!-- ลบ -->

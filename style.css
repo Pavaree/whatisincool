@@ -1,14 +1,18 @@
 body{
     padding:1em;
-    background:black;
-    font-family: 'Itim', cursive;
+    background-image:linear-gradient(to top, #e65820, #d6ee7d);
+    font-family: 'Chonburi', cursive;
   }
-
-
+h1, h2{
+    font-family: 'Chonburi', cursive;
+}
+.but{
+    font-family: 'Chonburi', cursive;
+}
 mobile{
     display:flex;
     flex-flow:column nowrap;
-    background:#373536;
+    background:#504f4f;
     margin:auto;
     width:414px;
     height:736px;
