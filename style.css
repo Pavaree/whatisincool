@@ -19,7 +19,6 @@ mobile{
   }
   .mobile-container{
     height:100%;
-    overflow:auto;
   }
 
 nav{
