@@ -2,72 +2,59 @@ function mockupClick(pageToHide, pageToShow) {
     if (pageToShow == "page-ranking") {
         document.getElementById('navbar').style.display = "block";
         document.getElementById('nav_bottom').style.display = "block";
+        loadItem();
     }
     else if (pageToShow == "page-findbyID") {
-        document.getElementById('navbar')
-        document.getElementById('nav_bottom')
+        document.getElementById('navbar').style.display = "block";
+        document.getElementById('nav_bottom').style.display = "block";
     }
     document.querySelector('#' + pageToHide).style.display = "none";
     document.querySelector('#' + pageToShow).style.display = "block";
 }
 
 
-
 function up(max, key_id) {
-    if (key_id == 1) {
-        document.getElementById("num_water").value = parseInt(document.getElementById("num_water").value) + 1;
-        if (document.getElementById("num_water").value >= parseInt(max)) {
-            document.getElementById("num_water").value = max;
-        }
+    let num = 'num_' + key_id;
+    var object = JSON.parse(localStorage.getItem("object"));
+    object[key_id - 1].amount += 1;
+    if (object[key_id - 1].amount >= parseInt(max)) {
+        object[key_id - 1].amount = max;
     }
-    else if (key_id == 2) {
-        document.getElementById("num_egg").value = parseInt(document.getElementById("num_egg").value) + 1;
-        if (document.getElementById("num_egg").value >= parseInt(max)) {
-            document.getElementById("num_egg").value = max;
-        }
-    }
+    localStorage.setItem("object", JSON.stringify(object));
+    document.getElementById(num).value = object[key_id -1].amount;
 }
 
 
 function down(min, key_id) {
-    let i = 3;
-    if (key_id == 1) {
-        document.getElementById("num_water").value = parseInt(document.getElementById("num_water").value) - 1;
-        if (document.getElementById("num_water").value <= parseInt(min)) {
-            document.getElementById("num_water").value = min;
-        }
+    let num = 'num_' + key_id;
+    var object = JSON.parse(localStorage.getItem("object"));
+    object[key_id - 1].amount -= 1;
+    if (object[key_id - 1].amount <= parseInt(min)) {
+        object[key_id - 1].amount = min;
     }
-
-    else if (key_id == 2) {
-        document.getElementById("num_egg").value = parseInt(document.getElementById("num_egg").value) - 1;
-        if (document.getElementById("num_egg").value <= parseInt(min)) {
-            document.getElementById("num_egg").value = min;
-        }
-    }
-
-    else if (key_id, num_$i) {
-        document.getElementById("num_$i").value = parseInt(document.getElementById("num_$i").value) - 1;
-        if (document.getElementById("num_$i").value <= parseInt(min)) {
-            document.getElementById("num_$i").value = min;
-        }
-    }
+    localStorage.setItem("object", JSON.stringify(object));
+    document.getElementById(num).value = object[key_id -1].amount;
 }
 
 
-var object =[{item:"น้ำเปล่า",amount:"1"},{item:"ไข่ไก่",amount:"1"}]
+var object = [{ item: "น้ำเปล่า", amount: 1 }, { item: "ไข่ไก่", amount: 1 }]
+if (localStorage.getItem("object") !== null) {
+    object = JSON.parse(localStorage.getItem("object"));
+    console.log("ShowItem");
+}
+
 function add_item() {
     let item_ = document.getElementById("item").value;
-    let amont_item = document.getElementById("amount").value;
-    object.push({item:item_,amount:amont_item})
+    let amont_item = parseInt(document.getElementById("amount").value);
+    object.push({ item: item_, amount: amont_item })
+    localStorage.setItem("object", JSON.stringify(object));
+    console.log(localStorage.getItem("object"));
     loadItem();
-
-    if (item_ == null && amont_item == null) {
-    }
-    
-
+    mockupClick("page-findbyID", "page-ranking")
 }
 
-function loadItem() { 
+
+function loadItem() {
     item_list = `
     <div class="row">
           <div class="col-6 text-center">
@@ -85,7 +72,7 @@ function loadItem() {
           </div>
         </div>`
 
-    for (var i = 1 ; i <= object.length ; i++) {
+    for (var i = 1; i <= object.length; i++) {
         item_list += `
 			<div class="row">
                 <div class="col-2 ">
@@ -93,25 +80,26 @@ function loadItem() {
                 </div>
 
                 <div class="col-4 ">
-                    <p>${object[i-1].item}</p>
+                    <p>${object[i - 1].item}</p>
                 </div>
 
                 <div class="col-3 text-center">
-                    <input type="text" id="num_${i}" class="form-control input-number" value="${object[i-1].amount}" />
+                    <input type="text" id="num_${i}" class="form-control input-number" value="${object[i - 1].amount}" />
                 </div>
                     
                 <!-- เพิ่ม -->
                 <div class="col-1 text-center">
-                    <img src="add.png" alt="" style="width: 15px; height: 15px;" onclick="up('20', num_${i})">
+                    <img src="add.png" alt="" style="width: 15px; height: 15px;" onclick="up('20', ${i})">
                 </div>
                 <div class="col-1 ">
                     <!-- ลบ -->
-                    <img src="minus.png" alt="" style="width: 15px; height: 15px;" onclick="down('0', num_${i})">
+                    <img src="minus.png" alt="" style="width: 15px; height: 15px;" onclick="down('0', ${i})">
                 </div>
             </div>
         `;
     }
     item_list += `<button class="but" onclick="mockupClick('page-ranking','page-findbyID')">เพิ่มรายการ</button>`
     document.getElementById("page-ranking").innerHTML = item_list
-    mockupClick("page-findbyID","page-ranking")
+    //mockupClick("page-findbyID", "page-ranking")
+
 }
