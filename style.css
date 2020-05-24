@@ -12,7 +12,7 @@ h1, h2{
 mobile{
     display:flex;
     flex-flow:column nowrap;
-    background:#504f4f;
+    background:#888c8f;
     margin:auto;
     width:414px;
     height:736px;
